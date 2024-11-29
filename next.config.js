@@ -1,5 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: 'export',
+  images: {
+    unoptimized: true,
+    domains: ['res.cloudinary.com']
+  },
   webpack: (config, { isServer }) => {
     if (!isServer) {
       config.resolve.fallback = {
@@ -10,11 +15,6 @@ const nextConfig = {
     }
     return config;
   },
-  images: {
-    domains: ['res.cloudinary.com'],
-  },
-  // Supprimez cette ligne
-  // output: 'export', 
 };
 
 module.exports = nextConfig;
